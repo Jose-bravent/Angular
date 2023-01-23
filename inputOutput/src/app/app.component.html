@@ -1,0 +1,27 @@
+<p>Ejemplo Intput - Output</p>
+
+<!-- <div class="main-container">
+  <app-ficha [datos]="datos[0]"></app-ficha>
+  <app-ficha [datos]="datos[1]"></app-ficha>  
+  <app-ficha [datos]="datos[2]"></app-ficha>
+</div> -->
+
+<!-- <div class="main-container">
+  <app-ficha *ngFor="let dato of datos;" [datos]="dato" (enviar)="datosEnviados($event)"></app-ficha>
+</div>
+<div>
+  {{mensaje}}
+</div> -->
+
+<app-formulario-persona (enviarPersona)="guardarPersona($event)"></app-formulario-persona>
+<app-listado [personas]="datos"></app-listado>
+
+<!-- Tenemos un formulario que nos pide una tarea: 
+Nombre de la tarea
+Prioridad(Alta, media, baja)
+Tiempo en horas
+
+Y en otro componente tenemos un listado de tareas
+Al final del listado, queremos el tiempo total de todas las tareas
+Buscador para filtrar solo un tipo de tareas. Un select con las opciones (Todas, Alta, Media, Baja) -->
+

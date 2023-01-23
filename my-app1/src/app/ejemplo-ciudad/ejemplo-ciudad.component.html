@@ -1,0 +1,29 @@
+<p>ejemplo-ciudad works!</p>
+<div>
+  <label>Nombre</label>
+  <input type="text" name="nombre" [(ngModel)]="nombre">
+</div>
+
+<div>
+  <label>Apellido</label>
+  <input type="text" name="apellido" [(ngModel)]="apellidos">
+</div>
+
+<div>
+  <label>Ciudad</label>
+  <select [(ngModel)]="ciudad">
+    <option value="">Sin ciudad</option>
+    <option value="Madrid">Madrid</option>
+    <option value="Málaga">Malaga</option>
+    <option value="Cadiz">Cadiz</option>
+    <option value="Toledo">Toledo</option>
+    <option value="Barcelona">Barcelona</option>
+  </select>
+</div>
+
+<div>
+  <p>{{nombre}} {{apellidos}} vives en la ciudad {{ciudad}}</p>
+</div>
+
+
+

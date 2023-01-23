@@ -1,0 +1,32 @@
+p {
+  color: green;
+}
+
+.parrafo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.small {
+  font-size: 10;
+}
+
+.cuadrado {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+

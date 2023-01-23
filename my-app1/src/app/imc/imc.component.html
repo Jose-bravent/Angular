@@ -1,0 +1,15 @@
+<p>imc works!</p>
+
+<div>
+  <label for="peso">Peso</label>
+  <input name="peso" id="peso" (input)="obtenerPeso($event)">  
+</div>
+
+<div>
+  <label for="altura">Altura</label>
+  <input name="altura" id="altura" (input)="obtenerAltura($event)">  
+</div>
+<button (click)="calcularImc()">Calcular</button>
+
+<p>Tu índice de masa corporal es: {{imc}}</p>
+<p>{{resultado}}</p>

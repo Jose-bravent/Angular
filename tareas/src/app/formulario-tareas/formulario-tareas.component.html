@@ -1,0 +1,26 @@
+<p>formulario-tareas works!</p>
+<div class="container">
+  <div class="field">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" type="text" name="nombre" [(ngModel)]="tarea.nombre">
+  </div>
+
+  <div class="field">
+    <label for="prioridad">Prioridad</label>
+    <select id="prioridad" [(ngModel)]="tarea.prioridad"> 
+      <option value="Baja">Baja</option>
+      <option value="Media">Media</option>
+      <option value="Alta">Alta</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="tiempo">Tiempo</label>
+    <input id="tiempo" type="number" name="tiempo" [(ngModel)]="tarea.tiempo">
+  </div>
+
+  <div>
+    <button (click)="guardar()">Guardar</button>
+  </div>
+
+</div>

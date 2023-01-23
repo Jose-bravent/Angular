@@ -1,0 +1,22 @@
+<p>formulario-persona works!</p>
+
+<div class="container">
+  <div class="field">
+    <label>Nombre</label>
+    <input type="text" name="nombre" [(ngModel)] = "persona.nombre">
+  </div>
+
+  <div class="field">
+    <label>Teléfono</label>
+    <input type="text" name="telefono" [(ngModel)] = "persona.telefono">
+  </div>
+
+  <div class="field">
+    <label>Email</label>
+    <input type="text" name="email" [(ngModel)] = "persona.email">
+  </div>
+
+  <div class="buttons">
+    <button (click)="enviar()">Enviar</button>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.container {
+  width: 300px;
+  border: 1px solid #000;
+  min-height: 80px;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.field label {
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  border: none;
+  background-color: green;
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px 20px;
+}

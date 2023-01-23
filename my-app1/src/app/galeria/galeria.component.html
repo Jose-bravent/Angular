@@ -1,0 +1,8 @@
+<p>galeria works!</p>
+
+<img [src]="images[imagenActual].url" [alt]="images[imagenActual].alt">
+<p>{{images[imagenActual].name}}</p>
+<div>
+  <button [disabled]="imagenActual === INICIO" (click)="imagenAnterior()">Anterior</button>
+  <button [disabled]="imagenActual === FIN" (click)="imagenSiguiente()">Siguiente</button>
+</div>
