@@ -1,0 +1,4 @@
+<p>listado-episodios works!</p>
+<div *ngFor="let episodio of datos">
+  <p (click)="seleccionarEpisodio(episodio)">{{episodio.title}} -- {{episodio.director}}</p>
+</div>
