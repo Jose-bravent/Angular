@@ -1,0 +1,17 @@
+.list-container ul li {
+  list-style: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  background: aquamarine;
+  padding: 10px;
+  min-width: 240px;
+}
+
+.field label {
+  font-weight: bold;
+}

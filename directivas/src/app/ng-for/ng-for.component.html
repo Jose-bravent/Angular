@@ -1,0 +1,9 @@
+<p>ng-for works!</p>
+
+<div *ngFor="let tarea of tareas; let i=index; let esPar=even; let esImpar=odd; let primero=first; let ultimo=last">
+ <div class="tarea" [ngClass]="{'primera': primero, 'ultima': ultimo, 'par': esPar, 'impar': esImpar}">
+  <p>{{i}} {{tarea.nombre}} {{tarea.descripcion}} {{tarea.prioridad}} <span *ngIf="!primero">{{tarea.tiempo}}</span></p>
+  <p>par: {{esPar}} impar: {{esImpar}}  primero: {{primero}} ultimo: {{ultimo}}</p>
+ </div>
+</div>
+

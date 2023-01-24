@@ -1,0 +1,109 @@
+<p>ng-if works!</p>
+
+<p *ngIf="!visible">
+  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+  The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+  as opposed to using 'Content here, content here', making it look like readable English. 
+  Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
+  and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+</p>
+
+<p [ngStyle]="{'display': 'none'}">
+  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+  The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+  as opposed to using 'Content here, content here', making it look like readable English. 
+  Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
+  and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+  Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+</p>
+
+<div class="tabs">
+  <ul class="tabs-menu">
+    <li [ngClass]="{'activo': tabActive === 1}" (click)="cargarTab(1)">Tab1</li>
+    <li [ngClass]="{'activo': tabActive === 2}" (click)="cargarTab(2)">Tab2</li>
+    <li [ngClass]="{'activo': tabActive === 3}" (click)="cargarTab(3)">Tab3</li>
+  </ul>
+  <section *ngIf="tabActive === 1">
+    <h2>Tab1</h2>
+    <p>
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+      as opposed to using 'Content here, content here', making it look like readable English. 
+      Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
+      and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+      Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+    </p>
+  </section>
+  <section *ngIf="tabActive === 2">
+    <h2>Tab2</h2>
+    <p>
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,       
+    </p>
+    <p>
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,       
+    </p>
+    <p>
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,       
+    </p>
+  </section>
+  <section *ngIf="tabActive === 3">
+    <h2>Tab3</h2>
+    <p>
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,       
+    </p>
+    <p>
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,       
+    </p>
+  </section>
+</div>
+
+<div *ngIf="visible">
+  <p>Contenido si la variable visible es true</p>
+</div>
+
+<div *ngIf="!visible">
+  <p>Contenido si la variable visible es false</p>
+</div>
+
+<!-- If con else-->
+<h2>If con else</h2>
+<div *ngIf="visible; else bloqueElse">
+  <p>Contenido si la variable visible es true</p>
+  <p>
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,       
+  </p>
+</div>
+
+<ng-template #bloqueElse>
+  <div>
+    <p>Contenido si la variable visible es false</p>
+  </div>  
+</ng-template>
+<!-- If con else-->
+
+<!-- If con then y else y dos templates -->
+<h2>If then con else</h2>
+<div *ngIf="visible; then bloqueIfTrue else bloqueIfFalse"></div>
+
+<ng-template #bloqueIfTrue>
+  <div>
+    <p>Contenido del bloque true</p>
+  </div>  
+</ng-template>
+
+<ng-template #bloqueIfFalse>
+  <div>
+    <p>Contenido del bloque false</p>
+  </div>  
+</ng-template>
+<!-- If con then y else y dos templates -->
+
+
+

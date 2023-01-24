@@ -1,0 +1,20 @@
+div {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.primera {
+  background-color: aquamarine;
+}
+
+.ultima {
+  background-color: blueviolet;
+}
+
+.par {
+  background-color: #aaa;
+}
+
+.impar {
+  background-color: #ddd;
+}
