@@ -1,0 +1,30 @@
+
+<div class="formulario-container">
+  <div class="row">
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" name="nombre" [(ngModel)]="alumno.nombre">
+    </div>
+    <div class="field">
+      <label for="edad">Edad</label>
+      <input id="edad" type="number" name="edad" [(ngModel)]="alumno.edad">
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="text" name="email" [(ngModel)]="alumno.email">
+    </div>
+    <div class="field">
+      <label for="curso">Curso</label>   
+        <select name="curso" id="curso" [(ngModel)]="alumno.curso">   
+          <option value="0">Elige curso</option>     
+          <option *ngFor="let curso of cursos;" [value]="curso.value">{{curso.name}}</option>
+        </select>   
+    </div>
+  </div> 
+  
+</div>
+<div class="buttons">
+  <button (click)="guardar()">Guardar</button>
+</div>

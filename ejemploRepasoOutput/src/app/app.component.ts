@@ -7,7 +7,7 @@ import { Episodio } from './interfaces/episodio.interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  episodios: Episodio[] = [
+  /* episodios: Episodio[] = [
     { title: 'Winter Is Coming', director: 'Tim Van Patten' },
     { title: 'The Kingsroad', director: 'Tim Van Patten' },
     { title: 'Lord Snow', director: 'Brian Kirk' },
@@ -17,7 +17,7 @@ export class AppComponent {
     { title: 'A Golden Crown', director: 'Daniel Minahan' },
     { title: 'You Win or You Die', director: 'Daniel Minahan' },
     { title: 'The Pointy End', director: 'Daniel Minahan' }
-    ]
+    ] */
     mensaje: string = '';
 
     recibir($event: Episodio) {

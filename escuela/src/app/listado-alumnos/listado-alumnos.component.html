@@ -1,0 +1,17 @@
+<section class="main-container">
+  <div class="select-container">
+    <select name="curso" (change)="seleccionarCurso($event)">
+      <option value="0">Todos los cursos</option>
+      <option *ngFor="let curso of cursos;" [value]="curso.value">{{curso.name}}</option>
+    </select>
+  </div>
+  <div class="listado-container" *ngIf="alumnos.length > 0; else sinResultados">
+    <div *ngFor="let alumno of alumnos;">
+      <app-ficha-alumno [datos]="alumno" [cursos]="cursos" (eliminar)="eliminar($event)"></app-ficha-alumno>
+    </div>
+  </div>    
+  <ng-template #sinResultados>
+    <p>No hay alumnos para el curso seleccionado</p>
+  </ng-template>
+</section>
+

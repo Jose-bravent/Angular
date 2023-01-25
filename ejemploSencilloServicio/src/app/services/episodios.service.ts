@@ -16,23 +16,27 @@ export class EpisodiosService {
       { title: 'You Win or You Die', director: 'Daniel Minahan' },
       { title: 'The Pointy End', director: 'Daniel Minahan' }      
   ] 
+  epi!: any[];
 
-  constructor() { }
+  constructor() {
+    this.epi = this.episodios;
+   }
 
   todosLosEpisodios() {
     return this.episodios;
   }
-  
-  episodiosPorDirector() {
-    
+
+  episodiosPorDirector(director: string) {
+    return this.episodios.filter(epi => epi.director === director);
   }
 
-  addEpisodio() {
-
+  addEpisodio(episodio: any) {
+    this.episodios.push(episodio)
   }
 
-  eliminarEpisodio() {
-
+  eliminarEpisodio(nombre: string) {
+    console.log(this.episodios.filter(epi => epi.title !== nombre))
+    return this.episodios.filter(epi => epi.title !== nombre)
   }
 
 }

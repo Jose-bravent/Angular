@@ -1,0 +1,13 @@
+.main-container {
+  padding: 30px;
+}
+
+.select-container {
+  margin-bottom: 30px;
+}
+
+.listado-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

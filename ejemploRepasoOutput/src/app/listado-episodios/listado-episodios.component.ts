@@ -12,6 +12,12 @@ export class ListadoEpisodiosComponent implements OnInit {
   @Output() enviar: EventEmitter<Episodio>
 
   datos!: Episodio[];
+
+  opciones: any = [
+    {value: 0, name: 'aaaa'},
+    {value: 1, name: 'bbbb'},
+    {value: 2, name: 'cccc'},
+  ]
   constructor(private episodiosService: EpisodiosService) {
     this.enviar = new EventEmitter();
   }

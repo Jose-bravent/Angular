@@ -1,3 +1,9 @@
 <div *ngFor="let episodio of datos; ">
   {{episodio.title}}
 </div>
+
+<button (click)="add()">Añadir</button>
+
+<select>
+  <option *ngFor="let op of opciones" [value]="op.value">{{op.name}}</option>
+</select>

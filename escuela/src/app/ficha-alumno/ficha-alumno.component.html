@@ -1,0 +1,21 @@
+<div class="ficha-container" [ngClass]="{'fondo-primaria': datos.curso <= 6, 'fondo-eso': datos.curso >= 7}">
+  <div class="field">
+    <p class="label">Nombre</p>
+    <p class="description">{{datos.nombre}}</p>
+  </div>
+  <div class="field">
+    <p class="label">Edad</p>
+    <p class="description">{{datos.edad}}</p>
+  </div>
+  <div class="field">
+    <p class="label">Email</p>
+    <p class="description">{{datos.email}}</p>
+  </div>
+  <div class="field">
+    <p class="label">Curso</p>
+    <p class="description">{{cursoAlumno.name}}</p>
+  </div> 
+  <div>
+    <button (click)="eliminarAlumno()">Eliminar</button>
+  </div>
+</div>

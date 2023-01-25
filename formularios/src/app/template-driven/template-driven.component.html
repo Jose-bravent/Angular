@@ -1,0 +1,19 @@
+<p>template-driven works!</p>
+
+<form novalidate #nuevaPersonaForm="ngForm" (ngSubmit)="onSubmit(nuevaPersonaForm)">
+  <div>
+    <label>Nombre</label>
+    <input type="text" name="nombre" ngModel />
+  </div>
+  <div>
+    <label>Apellidos</label>
+    <input type="text" name="apellidos" ngModel />
+  </div>
+  <div>
+    <label>Edad</label>
+    <input type="number" name="edad" ngModel />
+  </div>
+  
+  <button type="submit">Enviar</button>
+</form>
+
