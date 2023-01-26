@@ -17,16 +17,20 @@
 
     <div class="field">
       <label for="fechaNacimiento">Fecha de nacimiento</label>
-      <input type="date" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento">     
+      <input type="date" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento">  
+      <p class="error" *ngIf="form.get('fechaNacimiento')?.hasError('validarmayoredad') && form.get('fechaNacimiento')?.touched">No mayor de edad</p>
+      <p class="error" *ngIf="form.get('fechaNacimiento')?.hasError('validarmayoredad') && form.get('fechaNacimiento')?.touched">
+        {{form.get('fechaNacimiento')?.errors?.['validarmayoredad']}}
+      </p>     
     </div>
 
     <div class="field">      
       <label for="email" [ngClass]="{'label-error': form.get('email')?.hasError('required') && form.get('email')?.touched}">
-        Email 
-        <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">Aqui iria el icono</span>
+        Email         
       </label>
       <input type="text" id="email" name="email" formControlName="email">    
-      <p class="error" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">El email es requerido</p> 
+      <p class="error" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">El email es requerido</p>       
+      
     </div>
 
     <div class="field">
