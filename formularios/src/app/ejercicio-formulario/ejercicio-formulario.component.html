@@ -1,0 +1,49 @@
+<div class="container">
+  
+  <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+   
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" formControlName="nombre">
+        <p class="error" *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">El nombre es requerido</p>
+        <p class="error" *ngIf="form.get('nombre')?.hasError('minlength') && form.get('nombre')?.touched">El nombre tiene que tener entre 3 y 15 caracteres</p>
+        <p class="error" *ngIf="form.get('nombre')?.hasError('maxlength') && form.get('nombre')?.touched">El nombre tiene que tener entre 3 y 15 caracteres</p>
+    </div>
+
+    <div class="field">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" id="apellidos" name="apellidos" formControlName="apellidos">      
+    </div>
+
+    <div class="field">
+      <label for="fechaNacimiento">Fecha de nacimiento</label>
+      <input type="date" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento">     
+    </div>
+
+    <div class="field">      
+      <label for="email" [ngClass]="{'label-error': form.get('email')?.hasError('required') && form.get('email')?.touched}">
+        Email 
+        <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">Aqui iria el icono</span>
+      </label>
+      <input type="text" id="email" name="email" formControlName="email">    
+      <p class="error" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">El email es requerido</p> 
+    </div>
+
+    <div class="field">
+      <label for="dni">Dni</label>
+      <input type="text" id="dni" name="dni" formControlName="dni" >     
+      <p class="error" *ngIf="form.get('dni')?.hasError('pattern') && form.get('dni')?.touched">El formato no es valido</p> 
+    </div>
+
+    <div class="field">      
+      <input type="checkbox" id="condiciones" name="condiciones" formControlName="condiciones">
+      <span>Acepta las condiciones</span>
+      <p class="error" *ngIf="form.get('condiciones')?.hasError('required') && form.get('condiciones')?.touched">Debes aceptar las condiciones</p> 
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+    </div>
+  
+  </form>
+</div>

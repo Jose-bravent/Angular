@@ -1,0 +1,72 @@
+<div class="container">
+  
+  <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p *ngIf="verNombre()">Hola: {{nom}}</p>
+    <!-- <p>Hola: {{nom}}</p> -->
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" formControlName="nombre">
+      <!-- <p class="error" *ngIf=
+      "(form.get('nombre')?.hasError('minlength') || form.get('nombre')?.hasError('required') || form.get('nombre')?.hasError('maxlength')) && 
+      form.get('nombre')?.touched">El nombre es requerido y tiene que tener 3 caracteres como mínimo y 8 máximo</p>
+      <p> -->
+        <!-- <p class="error" *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">El nombre es requerido</p>
+        <p class="error" *ngIf="form.get('nombre')?.hasError('minlength') && form.get('nombre')?.touched">El nombre tiene que tener entre 3 y 8 caracteres</p>
+        <p class="error" *ngIf="form.get('nombre')?.hasError('maxlength') && form.get('nombre')?.touched">El nombre tiene que tener entre 3 y 8 caracteres</p> -->
+
+        <p class="error" *ngIf="checkError('nombre', 'required')">El nombre es requerido</p>
+        <p class="error" *ngIf="checkError('nombre', 'minlength')">El nombre tiene que tener entre 3 y 8 caracteres</p>
+        <p class="error" *ngIf="checkError('nombre', 'maxlength')">El nombre tiene que tener entre 3 y 8 caracteres</p>
+
+    </div>
+
+    <div class="field">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" id="apellidos" name="apellidos" formControlName="apellidos">
+      <!-- <p class="error" *ngIf="checkApellidos()">El apellido es obligatorio</p>  -->     
+      <p class="error" *ngIf="checkError('apellidos', 'required')">El apellido es obligatorio</p> 
+    </div>
+
+    <div class="field">
+      <label for="edad">Edad</label>
+      <input type="number" id="edad" name="edad" formControlName="edad">
+      <p class="error" *ngIf=
+      "form.get('edad')?.hasError('required') && 
+      form.get('edad')?.touched">Debes introducir tu edad</p>
+      <!-- <p class="error" *ngIf="form.get('edad')?.hasError('edadvalidador') && form.get('edad')?.touched">
+        {{form.get('edad')?.errors?.['edadvalidador']}}
+      </p> -->
+      <p class="error" *ngIf="checkError('edad', 'edadvalidador')">
+        {{form.get('edad')?.errors?.['edadvalidador']}}
+      </p>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" formControlName="email">
+      <p class="error" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">El nombre es requerido</p>
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="" id="password" name="password" formControlName="password" >
+      <p class="error" *ngIf="form.hasError('passwordcompare') && form.get('password')?.touched && form.get('repeatPass')?.touched">La password no coincide</p>
+    </div>
+
+    <div class="field">
+      <label for="repeatPass">Repetir password</label>
+      <input type="text" id="repeatPass" name="repeatPass" formControlName="repeatPass">
+      <p class="error" *ngIf="form.hasError('passwordcompare') && form.get('repeatPass')?.touched">La password no coincide</p>
+    </div>
+
+    <div class="field">      
+      <input type="checkbox" id="condiciones" name="condiciones" formControlName="condiciones">
+      <span>Acepta las condiciones</span>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Enviar</button>
+    </div>
+  
+  </form>
+</div>

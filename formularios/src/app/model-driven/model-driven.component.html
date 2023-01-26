@@ -1,1 +1,46 @@
-<p>model-driven works!</p>
+<div class="container">
+  <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" formControlName="nombre" >
+      <p class="error" *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">El nombre es obligatorio</p>
+      <p class="error" *ngIf="form.get('nombre')?.hasError('minlength') && form.get('nombre')?.touched">Longitud minima 3</p>
+    </div>
+    <div class="field">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" name="apellidos" formControlName="apellidos">
+    </div>
+    <div class="field">
+      <label for="fecha">Fecha</label>
+      <input type="date" name="fecha" formControlName="fecha">
+    </div>
+    <div class="field">
+      <label for="edad">Edad</label>
+      <input type="number" name="edad" formControlName="edad">
+      <p class="error" *ngIf="form.get('edad')?.hasError('edadvalidador') && form.get('edad')?.touched">
+        {{form.get('edad')?.errors?.['edadvalidador']}}
+      </p>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" name="email" formControlName="email">
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" name="password" formControlName="password">
+    </div>
+    <div class="field">
+      <label for="repeatPass">Repetir password</label>
+      <input type="password" name="repeatPass" formControlName="repeatPass">
+      <p class="error" *ngIf="form.hasError('passwordcompare') && form.get('repeatPass')?.touched">La password no coincide</p>
+    </div>
+    <div class="field">
+      <input type="checkbox" name="condiciones" formControlName="condiciones" class="checkbox">
+      <span> Acepta las condiciones</span>
+    </div>
+    <div>
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Enviar</button>
+    </div>
+    
+</form>
+</div>
