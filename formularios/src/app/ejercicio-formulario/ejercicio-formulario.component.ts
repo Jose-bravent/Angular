@@ -18,7 +18,7 @@ export class EjercicioFormularioComponent implements OnInit {
       apellidos: new FormControl(''), 
       fechaNacimiento: new FormControl('', this.validarMayorEdad), 
       email: new FormControl('', Validators.required),
-      dni: new FormControl('', Validators.pattern(/^[0-9]{8,8}[A-Za-z]$/)),      
+      dni: new FormControl('', [Validators.required, this.validarDni]),      
       condiciones: new FormControl('', Validators.requiredTrue),    
 
      }, []) 
@@ -32,12 +32,12 @@ export class EjercicioFormularioComponent implements OnInit {
       condiciones: true
     })
   }
-  
+
   onSubmit() {
     console.log(this.form.value)
   }
 
-  validarMayorEdad(control: AbstractControl): any {
+  /* validarMayorEdad(control: AbstractControl): any {
     const edad = control.value;
     const edadFormatoFecha = new Date(edad);
     const fechaActual = new Date();
@@ -48,6 +48,47 @@ export class EjercicioFormularioComponent implements OnInit {
     }
     return {
       'validarmayoredad' : 'No eres mayor de edad'
+    }
+  } */
+
+  validarMayorEdad(control: AbstractControl): any {
+    const edad = control.value;
+    const edadFormatoFecha = new Date(edad);
+    const hoy = new Date();
+    const edadDia = edadFormatoFecha.getDate();
+    const edadMes = edadFormatoFecha.getMonth();
+    const edadYear = edadFormatoFecha.getFullYear();
+
+    const hoyDia = hoy.getDate();
+    const hoyMes = hoy.getMonth();
+    const hoyear = hoy.getFullYear();
+
+    const years = hoyear - edadYear;
+    
+    if ((years > 18) ||
+        (years === 18 && edadMes < hoyMes) ||
+        (years === 18 && edadMes === hoyMes && edadDia <= hoyDia)) {
+          return null;
+    } else {
+        return {
+          'validarmayoredad' : 'No eres mayor de edad'
+        }    
+    }    
+  }
+
+  validarDni(control: AbstractControl): any {
+    const dni = control.value;
+    const letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T'];
+    const longitud = dni.length;
+    const letra = dni[longitud - 1];
+    const numero = Number(dni.substring(0, longitud - 1));
+    const resto = numero ? numero % 23 : 0;
+    if (numero && letra.toUpperCase() === letras[resto]) {
+      return null
+    } else {
+      return {
+        'validardni' : 'El dni no es válido'
+      } 
     }
   }
 }

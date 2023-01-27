@@ -36,7 +36,10 @@
     <div class="field">
       <label for="dni">Dni</label>
       <input type="text" id="dni" name="dni" formControlName="dni" >     
-      <p class="error" *ngIf="form.get('dni')?.hasError('pattern') && form.get('dni')?.touched">El formato no es valido</p> 
+      <!-- <p class="error" *ngIf="form.get('dni')?.hasError('pattern') && form.get('dni')?.touched">El formato no es valido</p>  -->
+      <p class="error" *ngIf="form.get('dni')?.hasError('validardni') && form.get('dni')?.touched">
+        {{form.get('dni')?.errors?.['validardni']}}
+      </p>  
     </div>
 
     <div class="field">      

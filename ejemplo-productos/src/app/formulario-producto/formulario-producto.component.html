@@ -1,0 +1,47 @@
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
+    <div class="form-text text-danger" *ngIf="checkError('nombre', 'required')">Debes introducir el nombre</div>
+    <div class="form-text text-danger" *ngIf="checkError('nombre', 'maxlength')">El nombre debe tener menos de 15 caracteres</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripción</label>
+    <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion">
+    <div class="form-text text-danger" *ngIf="checkError('descripcion', 'required')">Debes introducir la descripción</div>
+    <div class="form-text text-danger" *ngIf="checkError('descripcion', 'maxlength')">La descripción debe tener menos de 20 caracteres</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="preMin" class="form-label">Precio mínimo</label>
+    <input type="number" class="form-control" id="preMin" name="preMin" formControlName="preMin">
+    <div class="form-text text-danger" *ngIf="checkError('preMin', 'required')">Debes introducir el precio mínimo</div>
+    <div class="form-text text-danger" *ngIf="checkError('preMin', 'min')">El precio mínimo debe ser positivo</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="preMax" class="form-label">Precio máximo</label>
+    <input type="number" class="form-control" id="preMax" name="preMax" formControlName="preMax">
+    <div class="form-text text-danger" *ngIf="checkError('preMax', 'required')">Debes introducir el precio máximo</div>
+    <div class="form-text text-danger" *ngIf="checkError('preMax', 'min')">El precio máximo debe ser positivo</div>
+    <div class="form-text text-danger" *ngIf="form.hasError('validarprecio') && form.get('preMin')?.touched && form.get('preMax')?.touched">
+      El precio mínimo debe ser menor que el precio máximo
+    </div>
+
+  </div>  
+
+  <div class="mb-3">
+    <label for="referencia" class="form-label">Referencia</label>
+    <input type="text" class="form-control" id="referencia" name="referencia" formControlName="referencia">
+    <div class="form-text text-danger" *ngIf="checkError('referencia', 'required')">Debes introducir la referencia</div>
+    <div class="form-text text-danger" *ngIf="checkError('referencia', 'pattern')">Formato inválido (XXX12345)</div>
+  </div>
+  
+  <div class="alert alert-success" role="alert" *ngIf="showAlert">
+    {{mensajeAlert}}
+  </div>
+  
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid || showAlert">Submit</button>
+
+</form>
