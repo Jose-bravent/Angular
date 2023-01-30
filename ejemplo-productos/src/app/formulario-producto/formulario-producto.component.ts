@@ -8,7 +8,7 @@ import {ProductosServiceService} from '../services/productos-service.service';
   styleUrls: ['./formulario-producto.component.css']
 })
 export class FormularioProductoComponent implements OnInit {
-  form!: FormGroup
+  form!: FormGroup;
   showAlert: boolean = false;
   mensajeAlert: string = '';
 
@@ -54,7 +54,7 @@ export class FormularioProductoComponent implements OnInit {
     return {
       'validarprecio': true
     }
-  }
+  }  
 }
 
 /*

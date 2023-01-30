@@ -10,6 +10,9 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { Page404Component } from './page404/page404.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetalleComponent } from './detalle/detalle.component';
+import { OpinionesComponent } from './opiniones/opiniones.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     FichaComponent,
     CabeceraComponent,
     Page404Component,
-    FiltroComponent
+    FiltroComponent,
+    DetalleComponent,
+    OpinionesComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

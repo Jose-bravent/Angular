@@ -1,3 +1,11 @@
-<div class="container d-flex gap-2 mt-5 justify-content-center align-items-center">
-  <app-ficha [productoFicha]="producto" *ngFor="let producto of listadoProductos;"></app-ficha>     
+<div class="container ">
+  <div class="container d-flex gap-2">
+    <app-filtro (enviarPrecios)="filtrarPrecios($event)" (enviarReset)="resetearFiltro()"></app-filtro>
+    <app-buscador (enviarNombre)="filtrarNombre($event)"></app-buscador>
+  </div>
+  <div class="container d-flex gap-2 mt-5 justify-content-center align-items-center">
+    <app-ficha [productoFicha]="producto" *ngFor="let producto of listadoProductos;"></app-ficha>     
+  </div>
+  
 </div>
+ 

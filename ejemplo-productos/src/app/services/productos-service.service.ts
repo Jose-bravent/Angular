@@ -11,7 +11,7 @@ export class ProductosServiceService {
       descripcion: 'Mesa de cocina de 30x60',
       preMin: 30,
       preMax: 50,
-      referencia: 'MES12345'
+      referencia: 'MES12345',      
     },
     { 
       nombre: 'Silla de cocina',
@@ -32,7 +32,7 @@ export class ProductosServiceService {
 
   constructor() { }
 
-  getAll() {
+  getAll() {    
     return this.productos;
   }
 
@@ -40,4 +40,21 @@ export class ProductosServiceService {
     this.productos.push(prod);    
     return 'Producto añadido correctamente';
   }
+
+  getByReference(ref: string): Producto | undefined {
+    return this.productos.find(prod => prod.referencia === ref)
+  }
+
+  getByPrice(preMin: number, preMax: number) {    
+    return this.productos.filter(prod => prod.preMin >= preMin && prod.preMax <= preMax)
+  }
+
+  /* getByPrice(precioFiltro: any) {
+    return this.productos.filter(prod => prod.preMin >= precioFiltro.preMin && prod.preMax <= precioFiltro.preMax)
+  }  */
+
+  getFilterByName(name: string) {
+    return this.productos.filter(prod => prod.nombre.toLowerCase().includes(name.toLowerCase()));
+  }
+
 }

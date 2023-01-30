@@ -1,0 +1,12 @@
+<div *ngIf="producto; else bloqueSinProducto"> 
+  <p >{{producto.descripcion}}</p>
+  <p >{{producto.preMin}}</p>
+  <p >{{producto. preMax}}</p>
+
+</div> 
+
+<ng-template #bloqueSinProducto>
+  <p>El producto no existe</p>
+</ng-template>
+
+<router-outlet></router-outlet>
